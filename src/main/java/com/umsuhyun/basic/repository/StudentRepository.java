@@ -14,7 +14,7 @@ import com.umsuhyun.basic.Entity.StudentEntity;
 // - JPA를 사용하면 JpaRespository 인터페이스를 상속받은 인터페이스의 구현체를 JPA가 자동으로 생성
 @Repository
 
-public interface StudentRespository 
+public interface StudentRepository 
 // JpaRepository<T, ID> :
 // - JPA 기반의 Repository를 구현하는 주요 인터페이스
 // - 기본 CRUD, 정렬 기능을 제공하고 있음

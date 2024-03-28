@@ -20,9 +20,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StudentController {
 
-
-    private final com.umsuhyun.basic.service.studentService studentService;
-
+    private final StudentService studentService;
+    
     // CREATE
     @PostMapping("/")
     public ResponseEntity<String> postStudent (  // 제너릭에는 데이터 타입이 전달되어야 함 
@@ -48,7 +47,7 @@ public class StudentController {
         @PathVariable("studentNumber") Integer studentNumber
     ) {
         ResponseEntity<String> response = studentService.deleteStudent(studentNumber);
-        return null;
+        return response;
     }
 
 }

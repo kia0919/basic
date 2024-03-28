@@ -8,9 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 // Cors 관련 설정을 변경하기위해 WebMvcCofigurer 인터페이스에
 // 존재하는 addCorsMappings 메서드를 오버라이드하여 재정의
+// WebMvcConfigurer 구현
 public class CorsConfig implements WebMvcConfigurer  {
     
-    @Override
+    @Override   // 재정의,
     public void addCorsMappings(CorsRegistry registry) {
         registry
         // 어떤 Request URL 패턴에 대하여 Cors 정책을 지정할 건지 

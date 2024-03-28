@@ -25,11 +25,11 @@ public class RequestDataController {
 
     // HTTP GET localhost:4000/request-data/request-param
     @GetMapping("/request-param")
-    // http://localhost:4000/request-data/request-param?userId=qwer&userName=gildong
-    public String getRequestParam(
+    // http://localhost:4000/request-data/request-param?userId=qwer&userName=gildong&userAge=10
+    public String getRequestParam(  // url로 데이터를 전송하는 메서드에 넣을 데이터와 그 타입
         @RequestParam(name="userId") String userId,
-        @RequestParam(name="userName", required=false) String userName,
-        @RequestParam() int userAge
+        @RequestParam(name="userName", required=false) String userName, 
+        @RequestParam() int userAge //AGE는 int타입
     ) {
         return "사용자 아이디 : " + userId + " / 사용자 이름 : " + userName + " / 사용자 나이 : " + userAge;
     }
@@ -49,7 +49,7 @@ public class RequestDataController {
         @PathVariable(name="name", required=false) String name
     ) {
         return "사용자 나이 : " + age + " / 사용자 이름 : " + name;
-    }
+    }   //42행에서 age/name, age 를 넣으도 구동은 되나, 
 
     // HTTP PATCH localhost:4000/request-data/patch/{userName}/update
     @PatchMapping("/patch/{userName}/update")

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.umsuhyun.basic.dto.request.student.PatchStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
 
 import jakarta.validation.Valid;
@@ -33,8 +34,12 @@ public class StudentController {
 
     // UPDATE
     @PatchMapping("/")
-    public ResponseEntity<?> patchStudent () {
-        return null;
+    public ResponseEntity<String> patchStudent (
+        @RequestBody @Valid PatchStudentRequestDto requestBody  //@Valid: 유효성 검사
+    )      //String으로 반환
+       {
+        ResponseEntity<String> response = studentService.patchStudent(requestBody);
+        return response;
     }
 
     // DELETE

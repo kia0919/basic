@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.umsuhyun.basic.Entity.StudentEntity;
 import com.umsuhyun.basic.dto.request.student.PatchStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
+import com.umsuhyun.basic.entity.StudentEntity;
 import com.umsuhyun.basic.repository.StudentRepository;
 import com.umsuhyun.basic.service.studentService;
 
@@ -43,7 +43,9 @@ public class StudentServiceImplement implements studentService {
     findById(studentNumber).get();
     // 3.검색된 instance의 address값을 dto.address로 변경
     studentEntity.setAddress(address);
-     }
+
+    return ResponseEntity.status(HttpStatus.OK).body("성공!");
+    }
 
 }
 

@@ -3,7 +3,8 @@ package com.umsuhyun.basic.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.umsuhyun.basic.Entity.StudentEntity;
+import com.umsuhyun.basic.entity.StudentEntity;
+
 
 // Repository 레이어:
 // - 데이터베이스와 관련된 작업들을 처리하는 영역

@@ -30,23 +30,27 @@ extends JpaRepository<StudentEntity, Integer> {
 // SQL : 
 // SELECT * FROM student;
 // WHERE address = '서울특별시';
+// findByAddress: 주어진 주소와 일치하는 엔터티들을 검색.
 List<StudentEntity> findByAddress( String address);
 
 // SQL :
 // SELECT * FROM student
 // WHERE graduation IS true
 // ORDER BY age DESC;
+// findByGraduationOrderByAgeDesc: 학생 엔터티 리스트 중에 졸업 여부에 따라 내림차순으로 학생 엔터티들을 검색합니다.
 List<StudentEntity> findByGraduationOrderByAgeDesc(Boolean graduation);
 
 // SQL:
 // SELECT & FROM student
 // WHERE student_number = 5
 // AND age > 20;
+// findByStudentNumberAndAgeGreaterThan: 주어진 학생 번호보다 큰 나이를 가진 학생 엔터티를 검색합니다.
 StudentEntity findByStudentNumberAndAgeGreaterThan(Integer studentNumber, Integer age);
 
 // SQL:
 // SELECT count(*) FROM student
-// WHERE graduation IS false
+// WHERE graduation IS false: 졸업하지 못한.
+// countByGraduation: 졸업 여부가 주어진 값인 학생 엔터티들의 수를 계산합니다.
 int countByGraduation(Boolean graduation);
 
 // address가 '서울특별시' 이면서 graduation이 true인 레코드가 존재하는가?
@@ -64,11 +68,13 @@ boolean existsByAddressAndGraduation(String address, Boolean graduation);
 
 // JPQL (Java Persistence Query Language) :
 // - 표준 SQL과 매우 흡사하지만 Entity명과 Entity 속성으로 쿼리를 작성하는 방법
+// s는 StudentEntity의 별칭이며  StudentEntity에 접근하는데 사용
 @Query(value = 
     "SELECT  s * FROM student WHERE s.studentNumber = ?1 AND s.age  > ?2 ",
     nativeQuery = false
 )
 List<StudentEntity> getStudent2(Integer studentNumber, Integer age);
+
 
 // Native SQL :
 // - 현재 사용하고 있는 RDBMS의 SQL 문법을 그대로 따르는 방식
@@ -88,19 +94,21 @@ List<StudentEntity> getStudent(Integer studentNumber, Integer age);
 
 @Query(
     value = 
-    "SELECT " +
+    "SELECT " + 
         "student_number AS studentNumber, " +
         "name, "+
         "address, "+
-        "grtaduation " +
+        "grtaduation " + // 학생 테이블에서 검색할 필드:student_number, name, address, graduation를 선택함.
         "FROM student " +
-        "WHERE student_number = :student_number "+
-        "AND age > :age ",
-        nativeQuery = true
+        "WHERE student_number = :student_number "+  //WHERE 구문으로 검색조건 지정, student_number가 주어진 student_number와 일치해야 함.
+        "AND age > :age ",  //  FROM 구문을 사용하여 student 테이블 선택
+        // nativeQuery: SQL을 직접작성하여, DB와 상호작용이 가능, 
+        // nativeQuery = true 는 해당 쿼리문이 네이티브SQL 쿼리임을 나타 냄
+        nativeQuery = true  
 )
 List<StudentEntity> getStudent3 (
     @Param("student_number") Integer studentNumber, 
-    @Param("age") Integer age
+    @Param("age") Integer age   // 가독성을 높이기 위해 @Param을 사용하여 student_number, age를 전달.
 );
 
 }

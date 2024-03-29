@@ -42,7 +42,8 @@ public class StudentController {
         return response;
     }
 
-    // DELETE       **@RequestMapping("/student")으로인해 URL에 /studentNumber이 아닌  /student+/삭제할 학생 번호를 붙여야 한다.
+    // DELETE       ** @RequestMapping("/student")으로 http://localhost:4000/student/에서  @DeleteMapping("/{studentNumber}")로 인해
+                            // 뒤에 삭제할 넘버를 적으면된다. 테이블에 1번 학생이 있으면 http://localhost:4000/student/1  URL 보내면 1번 학생이 삭제된다.
     @DeleteMapping("/{studentNumber}")
     public ResponseEntity<String> deleteStudent(
         @PathVariable("studentNumber") Integer studentNumber

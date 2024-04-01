@@ -33,7 +33,8 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/main")  //:이 클래스의 모든 메서드가 "/main"경로에 매핑
 // final로 선언된 필드 변수에 대해서 생성자를 자동으로 작성함
 
-@RequiredArgsConstructor    // 필수 멤버변수들을 매개변수로 받는 생성자를 작성해주는 어노테이션 
+// 필수 멤버변수들을 매개변수로 받는 생성자를 작성해주는 어노테이션 
+@RequiredArgsConstructor    
 public class BasicController {  // 어디서든 접근 가능한 클래스 선언 하는 것.
 
     // private BasicService service;

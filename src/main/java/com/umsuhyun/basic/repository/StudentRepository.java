@@ -100,8 +100,10 @@ List<StudentEntity> getStudent(Integer studentNumber, Integer age);
         "address, "+
         "grtaduation " + // 학생 테이블에서 검색할 필드:student_number, name, address, graduation를 선택함.
         "FROM student " +
-        "WHERE student_number = :student_number "+  //WHERE 구문으로 검색조건 지정, student_number가 주어진 student_number와 일치해야 함.
-        "AND age > :age ",  //  FROM 구문을 사용하여 student 테이블 선택
+        //WHERE 구문으로 검색조건 지정, student_number가 주어진 student_number와 일치해야 함.
+        "WHERE student_number = :student_number "+  
+        //  FROM 구문을 사용하여 student 테이블 선택
+        "AND age > :age ",  
         // nativeQuery: SQL을 직접작성하여, DB와 상호작용이 가능, 
         // nativeQuery = true 는 해당 쿼리문이 네이티브SQL 쿼리임을 나타 냄
         nativeQuery = true  

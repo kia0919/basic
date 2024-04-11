@@ -63,7 +63,7 @@ public class SampleDto {
     @Email
     private String email;
 
-    // 정규식을 이용해 문자열의 패턴 검사를 진행
+    //! 정규식을 이용해 문자열의 패턴 검사를 진행
     // 전화번호, 이메일, url, 주민등록번호, 비밀번호
     // 영어로만 된 문자열, 한글로만 된 문자열, 숫자로만 된 문자열
     @Pattern(regexp="^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\\.[a-zA-Z]{2,4}$")

@@ -22,7 +22,7 @@ public class StudentServiceImplement implements StudentService {
     @Override
     public ResponseEntity<String> postStudent(PostStudentRequestDto dto) {
 
-        // CREATE (SQL : INSERT)
+        //! CREATE (SQL : INSERT)
         // 1. Entity 클래스의 인스턴스 생성
         // 2. 생성한 인스턴스를 repository.save() 메서드로 저장
         StudentEntity studentEntity = new StudentEntity(dto);

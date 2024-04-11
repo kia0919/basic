@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-// @Configuration : Spring boot 기본설정 지정 및 변경
+//! @Configuration : Spring boot 기본설정 지정 및 변경
 @Configuration
 // Cors 관련 설정을 변경하기위해 WebMvcCofigurer 인터페이스에
 // 존재하는 addCorsMappings 메서드를 오버라이드하여 재정의

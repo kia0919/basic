@@ -8,17 +8,17 @@ import org.springframework.stereotype.Repository;
 import com.umsuhyun.basic.entity.StudentEntity;
 import java.util.List;
 
-// Repository 레이어:
+//! Repository 레이어:
 // - 데이터베이스와 관련된 작업들을 처리하는 영역
 // - Service가 비즈니스 로직 수행 중 데이터베이스 작업이 필요할 때 Respository를 거쳐서 데이터베이스 작업을 수행
 
-// @Repository: 해당 클래스를 Spring Bean으로 등록하는 어노테이션, @Component와 동일
+//! @Repository: 해당 클래스를 Spring Bean으로 등록하는 어노테이션, @Component와 동일
 // - interface에 @Repository를 사용한 이유
 // - JPA를 사용하면 JpaRespository 인터페이스를 상속받은 인터페이스의 구현체를 JPA가 자동으로 생성
 @Repository
 
 public interface StudentRepository 
-// JpaRepository<T, ID> :
+//! JpaRepository<T, ID> :
 // - JPA 기반의 Repository를 구현하는 주요 인터페이스
 // - 기본 CRUD, 정렬 기능을 제공하고 있음
 // - JPA 기반 Respository를 생성할 때 반드시 상속해야 함
@@ -27,27 +27,27 @@ public interface StudentRepository
 extends JpaRepository<StudentEntity, Integer> {
 // Student 테이블에서 address가 '서울특별시'인 레코드를 조회
         
-// SQL : 
+//! SQL : 
 // SELECT * FROM student;
 // WHERE address = '서울특별시';
 // findByAddress: 주어진 주소와 일치하는 엔터티들을 검색.
 List<StudentEntity> findByAddress( String address);
 
-// SQL :
+//! SQL :
 // SELECT * FROM student
 // WHERE graduation IS true
 // ORDER BY age DESC;
 // findByGraduationOrderByAgeDesc: 학생 엔터티 리스트 중에 졸업 여부에 따라 내림차순으로 학생 엔터티들을 검색합니다.
 List<StudentEntity> findByGraduationOrderByAgeDesc(Boolean graduation);
 
-// SQL:
+//! SQL:
 // SELECT & FROM student
 // WHERE student_number = 5
 // AND age > 20;
 // findByStudentNumberAndAgeGreaterThan: 주어진 학생 번호보다 큰 나이를 가진 학생 엔터티를 검색합니다.
 StudentEntity findByStudentNumberAndAgeGreaterThan(Integer studentNumber, Integer age);
 
-// SQL:
+//! SQL:
 // SELECT count(*) FROM student
 // WHERE graduation IS false: 졸업하지 못한.
 // countByGraduation: 졸업 여부가 주어진 값인 학생 엔터티들의 수를 계산합니다.
@@ -56,7 +56,7 @@ int countByGraduation(Boolean graduation);
 // address가 '서울특별시' 이면서 graduation이 true인 레코드가 존재하는가?
 boolean existsByAddressAndGraduation(String address, Boolean graduation);
 
-// @Query:
+//! @Query:
 // - 쿼리 메서드 생성 방식만으로는 실제 SQL을 작성하는 데 한계있음
 // - 쿼리 메서드는 복잡한 쿼리, 조인, 서브쿼리, 그룹화를 사용할 수 없음
 // - 직접SQL문으로 쿼리를 생성하도록 하는 어노테이션 
@@ -66,7 +66,7 @@ boolean existsByAddressAndGraduation(String address, Boolean graduation);
 // WHERE student_number = 5
 // AND age > 20;
 
-// JPQL (Java Persistence Query Language) :
+//! JPQL (Java Persistence Query Language) :
 // - 표준 SQL과 매우 흡사하지만 Entity명과 Entity 속성으로 쿼리를 작성하는 방법
 // s는 StudentEntity의 별칭이며  StudentEntity에 접근하는데 사용
 @Query(value = 
@@ -76,7 +76,7 @@ boolean existsByAddressAndGraduation(String address, Boolean graduation);
 List<StudentEntity> getStudent2(Integer studentNumber, Integer age);
 
 
-// Native SQL :
+//! Native SQL :
 // - 현재 사용하고 있는 RDBMS의 SQL 문법을 그대로 따르는 방식
 @Query(
     value = 

@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/request-data")
 public class RequestDataController {
     
-    // @RequestParam() : 
+    //! @RequestParam() : 
     // - GET, DELETE 처럼 URL로 데이터를 전송하는 메서드에서 Query String 으로 지정된
     //    데이터를 가져오기 위해 사용
 
@@ -34,7 +34,7 @@ public class RequestDataController {
         return "사용자 아이디 : " + userId + " / 사용자 이름 : " + userName + " / 사용자 나이 : " + userAge;
     }
 
-    // @PathVariable() :
+    //! @PathVariable() :
     // 모든 HTTP 메서드에서 URL의 특정 패턴에 따라서 데이터를 추출하는 방식
 
     // HTTP DELETE localhost:4000/request-data/path-variable
@@ -51,7 +51,7 @@ public class RequestDataController {
         return "사용자 나이 : " + age + " / 사용자 이름 : " + name;
     }   //42행에서 age/name, age 를 넣으도 구동은 되나, 
 
-    // HTTP PATCH localhost:4000/request-data/patch/{userName}/update
+    //! HTTP PATCH localhost:4000/request-data/patch/{userName}/update
     @PatchMapping("/patch/{userName}/update")
     public String patchUpdate(
         @PathVariable("userName") String userName

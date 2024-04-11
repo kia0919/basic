@@ -24,5 +24,10 @@ public class BasicServiceImplement implements BasicService {
     public String getApple() {
         return "Get Mapping 으로 만든 메서드";
     }
+
+    @Override
+    public String getJwt(String priciple) {
+        
+    }
     
 }

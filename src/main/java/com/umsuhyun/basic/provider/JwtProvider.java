@@ -28,12 +28,12 @@ public class JwtProvider {
         // 만료시간 생성 (Instant.now:현재시간).plus() 플러스 시간
         Date expiredDate = Date.from(Instant.now().plus(4, ChronoUnit.HOURS));
         // 비밀키 생성
-        Key key = Keys.hmacShaKeyFor("qwerasdfzxcvqwerasdfzxcvqwerasdfzxcvqwerasdfzxcv".getBytes(StandardCharsets.UTF_8));
+        Key key = Keys.hmacShaKeyFor("qwerasdfzxcvqwerasdfzxcvqwerasdfzxcvqwerasdfzxcverasdfzxcverasdfzxcv".getBytes(StandardCharsets.UTF_8));
 
         // JWT 생성
         String jwt = Jwts.builder()
                 // 서명 (서명에 사용할 비밀키, 서명에 사용할 암호화 알고리즘)
-                .signWith(key, SignatureAlgorithm.ES256)
+                .signWith(key, SignatureAlgorithm.HS256)
                 // 페이로드 
                 // "작성자"
                 .setSubject(principle)

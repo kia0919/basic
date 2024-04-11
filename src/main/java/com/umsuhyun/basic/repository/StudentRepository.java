@@ -70,7 +70,7 @@ boolean existsByAddressAndGraduation(String address, Boolean graduation);
 // - 표준 SQL과 매우 흡사하지만 Entity명과 Entity 속성으로 쿼리를 작성하는 방법
 // s는 StudentEntity의 별칭이며  StudentEntity에 접근하는데 사용
 @Query(value = 
-    "SELECT  s * FROM student WHERE s.studentNumber = ?1 AND s.age  > ?2 ",
+    "SELECT s FROM student s WHERE s.studentNumber = ?1 AND s.age  > ?2 ",
     nativeQuery = false
 )
 List<StudentEntity> getStudent2(Integer studentNumber, Integer age);

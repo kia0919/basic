@@ -5,11 +5,11 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-// @RestControllerAdcice: RestControllerAdvice에서 발생하는 특정 상황들에 대해 처리하는 클래스 지정
+//! @RestControllerAdcice: RestControllerAdvice에서 발생하는 특정 상황들에 대해 처리하는 클래스 지정
 @RestControllerAdvice
 public class CustomExceptionHandler {
 
-    // @ExceptionHandler: 지정한 예외에 대해 직접 컨트롤 할 수 있도록 하는 어노테이션
+    //! @ExceptionHandler: 지정한 예외에 대해 직접 컨트롤 할 수 있도록 하는 어노테이션
     @ExceptionHandler(value={MethodArgumentNotValidException.class})
     public ResponseEntity<String> 
     customException(MethodArgumentNotValidException exception) {

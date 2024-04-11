@@ -21,21 +21,26 @@ import io.jsonwebtoken.security.Keys;
 // - 페이로드 : 클라이언트가 혹은 서버가 상대방에게 전달할 데이터가 포함되어있음(작성자, 접근주체의 정보, 작성시간, 만료시간)
 // -서명 : 헤더와 페이로드를 합쳐서 인코딩하고 지정한 비밀키로 암호화한 데이터
 @Component
+// JwtProvider 클래스 생성
 public class JwtProvider {
 
     //! JWT 생성
+    // Jwt 생성 메서드
     public String create(String principle) {
-        // 만료시간 생성 (Instant.now:현재시간).plus() 플러스 시간
+        // 만료시간 생성
+        // Instant.now():현재시간, plus(4, ChronoUnit.HOURS): 4시간 후를 만료시간.
         Date expiredDate = Date.from(Instant.now().plus(4, ChronoUnit.HOURS));
         // 비밀키 생성
+        // StandardCharsets를 사용하여 UTF-8 문자 인코딩으로 키를 설정.
         Key key = Keys.hmacShaKeyFor("qwerasdfzxcvqwerasdfzxcvqwerasdfzxcvqwerasdfzxcverasdfzxcverasdfzxcv".getBytes(StandardCharsets.UTF_8));
 
         // JWT 생성
+        // Jwts.builder()를 호출하여 JWT 빌더를 생성
         String jwt = Jwts.builder()
                 // 서명 (서명에 사용할 비밀키, 서명에 사용할 암호화 알고리즘)
+                // Keys.hmacShaKeyFor를 사용하여 HMAC-SHA256 알고리즘을 사용하는 키를 생성.
                 .signWith(key, SignatureAlgorithm.HS256)
                 // 페이로드 
-                
                 // "작성자"
                 .setSubject(principle)
                 // 생성시간
@@ -43,6 +48,7 @@ public class JwtProvider {
                 // 만료시간
                 .setExpiration(expiredDate)
                 // 위의 내용을 압축(인코딩)
+                // .compact 호출하여 Jwt 생성, 반환
                 .compact();
 
                 return jwt;      

@@ -35,6 +35,7 @@ public class JwtProvider {
                 // 서명 (서명에 사용할 비밀키, 서명에 사용할 암호화 알고리즘)
                 .signWith(key, SignatureAlgorithm.HS256)
                 // 페이로드 
+                
                 // "작성자"
                 .setSubject(principle)
                 // 생성시간

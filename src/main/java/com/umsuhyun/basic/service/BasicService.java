@@ -11,4 +11,5 @@ public interface BasicService {
 
     // String 문자열 반환
     String getJwt(String priciple);
+    String jwtValidate(String jwt);
 }

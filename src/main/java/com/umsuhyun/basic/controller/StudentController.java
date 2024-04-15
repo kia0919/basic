@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.umsuhyun.basic.dto.request.student.PatchStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
-import com.umsuhyun.basic.service.StudentService;
+import com.umsuhyun.basic.service.studentService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StudentController {
 
-    private final StudentService studentService;
+    private final studentService studentService;
     
     // CREATE
     @PostMapping("/")

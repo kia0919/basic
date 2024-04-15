@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.umsuhyun.basic.dto.request.student.PatchStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
-import com.umsuhyun.basic.entity.StudentEntity;
+import com.umsuhyun.basic.Entity.StudentEntity;
 import com.umsuhyun.basic.repository.StudentRepository;
-import com.umsuhyun.basic.service.StudentService;
+import com.umsuhyun.basic.service.studentService;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class StudentServiceImplement implements StudentService {
+public class StudentServiceImplement implements studentService {
 
     private final StudentRepository studentRepository;
 

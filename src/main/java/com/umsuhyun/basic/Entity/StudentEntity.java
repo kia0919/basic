@@ -1,4 +1,4 @@
-package com.umsuhyun.basic.Entity;
+package com.umsuhyun.basic.entity;
 
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
 

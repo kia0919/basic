@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.umsuhyun.basic.dto.request.student.PatchStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.SignInRequestDto;
-import com.umsuhyun.basic.Entity.StudentEntity;
+import com.umsuhyun.basic.entity.StudentEntity;
 import com.umsuhyun.basic.repository.StudentRepository;
 import com.umsuhyun.basic.service.studentService;
 

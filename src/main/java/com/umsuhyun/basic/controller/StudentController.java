@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.umsuhyun.basic.dto.request.student.PatchStudentRequestDto;
 import com.umsuhyun.basic.dto.request.student.PostStudentRequestDto;
+import com.umsuhyun.basic.dto.request.student.SignInRequestDto;
 import com.umsuhyun.basic.service.studentService;
 
 import jakarta.validation.Valid;
@@ -22,28 +23,26 @@ import lombok.RequiredArgsConstructor;
 public class StudentController {
 
     private final studentService studentService;
-    
+
     // CREATE
     @PostMapping("/")
-    public ResponseEntity<String> postStudent (  // 제너릭에는 데이터 타입이 전달되어야 함 
+    public ResponseEntity<String> postStudent(
         @RequestBody @Valid PostStudentRequestDto requestBody
     ) {
         ResponseEntity<String> response = studentService.postStudent(requestBody);
         return response;
-    }     
+    }
 
     // UPDATE
     @PatchMapping("/")
-    public ResponseEntity<String> patchStudent (
-        @RequestBody @Valid PatchStudentRequestDto requestBody  //@Valid: 유효성 검사
-    )      //String으로 반환
-       {
+    public ResponseEntity<String> patchStudent(
+        @RequestBody @Valid PatchStudentRequestDto requestBody
+    ) {
         ResponseEntity<String> response = studentService.patchStudent(requestBody);
         return response;
     }
 
-    // DELETE       ** @RequestMapping("/student")으로 http://localhost:4000/student/에서  @DeleteMapping("/{studentNumber}")로 인해
-                            // 뒤에 삭제할 넘버를 적으면된다. 테이블에 1번 학생이 있으면 http://localhost:4000/student/1  URL 보내면 1번 학생이 삭제된다.
+    // DELETE
     @DeleteMapping("/{studentNumber}")
     public ResponseEntity<String> deleteStudent(
         @PathVariable("studentNumber") Integer studentNumber
@@ -52,4 +51,11 @@ public class StudentController {
         return response;
     }
 
+    @PostMapping("/sign-in")
+    public ResponseEntity<String> signIn (
+        @RequestBody @Valid SignInRequestDto requestBody
+    ) {
+        return studentService.signIn(requestBody);
+    }
+    
 }

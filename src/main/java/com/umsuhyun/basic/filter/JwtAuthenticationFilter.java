@@ -26,14 +26,14 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-// OncePerRequestFilter :
+//! OncePerRequestFilter :
 // - 해당 클래스를 필터 클래스로 지정하는 추상클래스
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtProvider jwtProvider;
 
-    // 1. 클라이언트가 인증 토큰을 발급받음
-    // 2. 인증 토큰을 발급받은 후 매 요청마다 인증 토큰을 request header의 Authorization 필드의 값으로 Bearer 토큰을 포함하여 요청
+    //! 1. 클라이언트가 인증 토큰을 발급받음
+    //! 2. 인증 토큰을 발급받은 후 매 요청마다 인증 토큰을 request header의 Authorization 필드의 값으로 Bearer 토큰을 포함하여 요청
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -88,7 +88,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     }
 
-    // 1. request 객체에서 header를 가져옴
+    //! 1. request 객체에서 header를 가져옴
     // 2. 가져온 header에서 'Authorization' 필드를 검색
     // 3. 검색한 'Authorization' 값에서 'Bearer '이후의 값을 토큰으로 가져옴
     private String parseBearerToken(HttpServletRequest request) {

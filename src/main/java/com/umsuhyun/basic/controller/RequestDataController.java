@@ -76,7 +76,7 @@ public class RequestDataController {
         return "getPathVariable2";
     }
 
-    // @RequestBody() : 
+    //! @RequestBody() : 
     // - POST, PATCH, PUT 처럼 RequestBody로 데이터를 전송하는 메서드에서 데이터를 가져오기 위해 사용
 
     // HTTP POST localhost:4000/request-data/post

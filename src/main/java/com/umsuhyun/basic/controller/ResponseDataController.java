@@ -15,13 +15,13 @@ import com.umsuhyun.basic.dto.ResponseSampleDto;
 @RequestMapping("/response-data")
 public class ResponseDataController {
     
-    // @ResponseEntity : 
+    //! @ResponseEntity : 
     // - Response의 header, status code, status message, data를 조작할 수 있도록 하는 클래스
     @GetMapping("/{number}")
     public ResponseEntity<String> getNumber(
         @PathVariable("number") Integer number
     ) {
-        // String body = number > 0 ? "양수" : number < 0 ? "음수" : "영";
+        //! String body = number > 0 ? "양수" : number < 0 ? "음수" : "영";
         // return new ResponseEntity<>(body, HttpStatusCode.valueOf(400));
         // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
 

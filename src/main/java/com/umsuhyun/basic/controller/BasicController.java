@@ -48,28 +48,30 @@ public class BasicController {  // 어디서든 접근 가능한 클래스 선�
     //! @Autowired : 등록된 Spring Bean을 제어의 역전을 통해서 의존성을 주입하는 방법
     // - 단, 생성자를 통한 의존성 주입에는 @Autowired를 생략해도 됨
 
-    //! @Autowired
+    //* */ @Autowired
     // public BasicController(BasicService service) {
     //     this.service = service;
     // }
 
-    // 의존성 주입시 클래스로 직접 참조변수를 만들지 않고 인터페이스로 간접적으로 만드는 이유 : 
+    //! 의존성 주입시 클래스로 직접 참조변수를 만들지 않고 인터페이스로 간접적으로 만드는 이유 : 
     // 고수준의 모듈에서 저수준의 모듈을 직접 참조하지 않고 추상화를 통해 간접 참조함으로 써 각 모듈간의 결합도를 낮춤 -> 코드의 재사용성 향상, 유지보수성 향상
     private final BasicService service; //
     
-    // HTTP GET localhost:4000/main/
-    // value="/"은 요청이 들어왔을 때 해당 메서드가 호출될 URL패턴 지정
+    //* */ HTTP GET localhost:4000/main/
+    //! value="/"은 요청이 들어왔을 때 해당 메서드가 호출될 URL패턴 지정
     // method={RequestMethod.GET}: HTTP 메서드에 대한 매핑 정의, GET메서드에 대한 요청만 메서드 실행.
     @RequestMapping(value="/", method={RequestMethod.GET})
     // 클라이언트로부터 GET요청 처리후, 결과를 문자열로 반환. 메서드 이름인 getHello는 해당 메서드가 Hello 문자열을 반환.
     public String getHello() {
-        return service.getHello(); // getHello메서드를 호출하여 작업 수행후에 결과를 반환한다. 결과는 문자열 형태로 반환되어 클라이언트에게 응답으로 전달.
+        // getHello메서드를 호출하여 작업 수행후에 결과를 반환한다. 결과는 문자열 형태로 반환되어 클라이언트에게 응답으로 전달.
+        return service.getHello(); 
     }
 
     //! HTTP GET Method : 클라이언트가 서버로부터 데이터를 받기를 원할 때 사용하는 메서드
     
     //! @GetMapping() : RequestMapping 기능을 GET Mathod에 한정시킨 것 (가독성 + 안정성)
-    @GetMapping("/apple")   // GET 요청에 "/apple"로 GET요청이 수신되어 메서드가 호출되도록 지정
+    // GET 요청에 "/apple"로 GET요청이 수신되어 메서드가 호출되도록 지정
+    @GetMapping("/apple")   
     // 결과값을 문자열 형태로 반환해준다.
     public String getApple () { 
         // apple데이터를 가져오는 서비스를 호출, 그 값을 반환.
@@ -113,7 +115,7 @@ public class BasicController {  // 어디서든 접근 가능한 클래스 선�
     }
 
     //! Method + URL Pattern이 중복되면 런타임 중에 에러가 발생
-    //! @DeleteMapping("/apple")
+    //* */  @DeleteMapping("/apple")
     // public String deleteApple1() {
     //     return "Delete Mapping 으로 만든 메서드";
     // }

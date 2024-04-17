@@ -22,7 +22,7 @@ public class StudentServiceImplement implements studentService {
 
     private final StudentRepository studentRepository;
 
-    // PasswordEncoder 인터페이스 :
+    //! PasswordEncoder 인터페이스 :
     // - Spring Security에서 제공해주는 비밀번호를 안전하게 관리하고 검증하도록 도움을 주는 인터페이스
     // - String encode(평문패스워드) : 평문 패스워드를 암호화해서 반환함
     // - boolean matches(평문패스워드, 암호화된패스워드) : 평문 패스워드와 암호화된 패스워드가 같은지 비교 결과를 반환
@@ -37,11 +37,11 @@ public class StudentServiceImplement implements studentService {
 
         dto.setPassword(encodedPassword);
 
-        // CREATE (SQL : INSERT)
+        //! CREATE (SQL : INSERT)
         // 1. Entity 클래스의 인스턴스 생성
         // 2. 생성한 인스턴스를 repository.save() 메서드로 저장
         StudentEntity studentEntity = new StudentEntity(dto);
-        // save() : 저장 및 수정 (덮어쓰기)
+        //! save() : 저장 및 수정 (덮어쓰기)
         StudentEntity savedEntity = studentRepository.save(studentEntity);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("성공!");

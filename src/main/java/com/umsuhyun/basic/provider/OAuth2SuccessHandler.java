@@ -29,11 +29,11 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
     
     // OAuth2User 객체의 사용자 이름 가져옴
     String name = customOAuth2User.getName();
-
+    
     // jwt 토큰 발급
     String token = jwtProvider.create(name);
-    
 
+    // response로 뿌려줌
     response.getWriter().write(token);
   }
 }

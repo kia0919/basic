@@ -33,7 +33,7 @@ public class JwtProvider {
     // - application.properties 혹은 application.yaml에 비밀키를 작성
     // - @Value()를 이용하여 데이터를 가져옴
     // - 주의사항 : application.properties / application.yaml을 .gitignore에 등록해야 함.
-    @Value("${jwt.sercret-key}")
+    @Value("${jwt.secret-key}")
     private String secretKey;
 
     //! 2. 시스템의 환경변수로 등록하여 사용(위 방법보다 보안상 더 좋음)
